@@ -1,0 +1,6 @@
+framework module Pods_GooglePlacesExercise {
+  umbrella header "Pods-GooglePlacesExercise-umbrella.h"
+
+  export *
+  module * { export * }
+}
