@@ -37,8 +37,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meE-qW-GW9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meE-qW-GW9">
                                                     <rect key="frame" x="16" y="10" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secondary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSo-cN-2qg">
+                                                    <rect key="frame" x="16" y="39" width="343" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -46,12 +52,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="meE-qW-GW9" secondAttribute="trailing" constant="16" id="0sh-SQ-nxp"/>
+                                                <constraint firstItem="vSo-cN-2qg" firstAttribute="top" secondItem="meE-qW-GW9" secondAttribute="bottom" constant="8" id="CGL-NT-QHe"/>
+                                                <constraint firstItem="vSo-cN-2qg" firstAttribute="leading" secondItem="ND5-ml-gFl" secondAttribute="leading" constant="16" id="DQW-ol-chM"/>
                                                 <constraint firstItem="meE-qW-GW9" firstAttribute="leading" secondItem="ND5-ml-gFl" secondAttribute="leading" constant="16" id="jGp-tq-QAK"/>
+                                                <constraint firstAttribute="trailing" secondItem="vSo-cN-2qg" secondAttribute="trailing" constant="16" id="lN2-lk-ppb"/>
                                                 <constraint firstItem="meE-qW-GW9" firstAttribute="top" secondItem="ND5-ml-gFl" secondAttribute="top" constant="10" id="rU8-nG-Hw4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="meE-qW-GW9" id="WUT-eL-wVe"/>
+                                            <outlet property="primaryText" destination="meE-qW-GW9" id="rlp-45-kQU"/>
+                                            <outlet property="secondaryText" destination="vSo-cN-2qg" id="zZP-po-oDJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,11 +78,30 @@
                     <connections>
                         <outlet property="placesSearchBar" destination="itX-3q-u1z" id="642-fR-yp7"/>
                         <outlet property="searchResultsTableView" destination="vxQ-hF-M02" id="w4R-Hn-S9U"/>
+                        <segue destination="Blj-t1-bRu" kind="show" identifier="toPlaceInfoVC" id="w22-MB-lGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="77.811094452773617"/>
+        </scene>
+        <!--Place Info View Controller-->
+        <scene sceneID="c2E-0J-kPd">
+            <objects>
+                <viewController id="Blj-t1-bRu" customClass="PlaceInfoViewController" customModule="GooglePlacesExercise" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J4D-DM-0xV"/>
+                        <viewControllerLayoutGuide type="bottom" id="7yK-Nh-R2r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JM9-iz-IX4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sue-n3-tcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="70"/>
         </scene>
     </scenes>
 </document>

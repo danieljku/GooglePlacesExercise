@@ -10,7 +10,15 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var primaryText: UILabel!
+    @IBOutlet weak var secondaryText: UILabel!
+    
+    var place: Place! {
+        didSet {
+            primaryText.text = place.primaryText
+            secondaryText.text = place.secondaryText
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

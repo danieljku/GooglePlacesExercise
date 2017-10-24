@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		120325F91F9EB6A800BF9531 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */; };
+		120325FD1F9ED75100BF9531 /* PlaceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120325FC1F9ED75100BF9531 /* PlaceInfoViewController.swift */; };
+		120325FF1F9ED8F300BF9531 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120325FE1F9ED8F300BF9531 /* Place.swift */; };
+		120326031F9EDBAB00BF9531 /* GoogleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120326021F9EDBAB00BF9531 /* GoogleAPI.swift */; };
 		12D01CEB1F9AAF0C00CE6FF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D01CEA1F9AAF0C00CE6FF9 /* AppDelegate.swift */; };
 		12D01CED1F9AAF0C00CE6FF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */; };
 		12D01CF01F9AAF0C00CE6FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CEE1F9AAF0C00CE6FF9 /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		120325FC1F9ED75100BF9531 /* PlaceInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceInfoViewController.swift; sourceTree = "<group>"; };
+		120325FE1F9ED8F300BF9531 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		120326021F9EDBAB00BF9531 /* GoogleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPI.swift; sourceTree = "<group>"; };
 		12D01CE71F9AAF0C00CE6FF9 /* GooglePlacesExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GooglePlacesExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D01CEA1F9AAF0C00CE6FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +48,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120325FA1F9ED70E00BF9531 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */,
+				120325FC1F9ED75100BF9531 /* PlaceInfoViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		120325FB1F9ED71500BF9531 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		120326001F9ED8F800BF9531 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				120325FE1F9ED8F300BF9531 /* Place.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		120326011F9EDB9D00BF9531 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				120326021F9EDBAB00BF9531 /* GoogleAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		12D01CDE1F9AAF0C00CE6FF9 = {
 			isa = PBXGroup;
 			children = (
@@ -63,13 +102,15 @@
 		12D01CE91F9AAF0C00CE6FF9 /* GooglePlacesExercise */ = {
 			isa = PBXGroup;
 			children = (
+				120326011F9EDB9D00BF9531 /* API */,
+				120326001F9ED8F800BF9531 /* Models */,
+				120325FB1F9ED71500BF9531 /* Views */,
+				120325FA1F9ED70E00BF9531 /* View Controllers */,
 				12D01CEA1F9AAF0C00CE6FF9 /* AppDelegate.swift */,
-				12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */,
 				12D01CEE1F9AAF0C00CE6FF9 /* Main.storyboard */,
 				12D01CF11F9AAF0C00CE6FF9 /* Assets.xcassets */,
 				12D01CF31F9AAF0C00CE6FF9 /* LaunchScreen.storyboard */,
 				12D01CF61F9AAF0C00CE6FF9 /* Info.plist */,
-				120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */,
 			);
 			path = GooglePlacesExercise;
 			sourceTree = "<group>";
@@ -215,9 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120325FD1F9ED75100BF9531 /* PlaceInfoViewController.swift in Sources */,
 				120325F91F9EB6A800BF9531 /* SearchTableViewCell.swift in Sources */,
 				12D01CED1F9AAF0C00CE6FF9 /* SearchViewController.swift in Sources */,
+				120326031F9EDBAB00BF9531 /* GoogleAPI.swift in Sources */,
 				12D01CEB1F9AAF0C00CE6FF9 /* AppDelegate.swift in Sources */,
+				120325FF1F9ED8F300BF9531 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
