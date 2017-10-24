@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import GooglePlaces
+import Alamofire
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var placesSearchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
     
     var searchResults = [Place]()
-    var placesClient: GMSPlacesClient!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +21,6 @@ class SearchViewController: UIViewController {
         searchResultsTableView.dataSource = self
         searchResultsTableView.delegate = self
         placesSearchBar.delegate = self
-        
-        placesClient = GMSPlacesClient.shared()
-
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,47 +44,46 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placeID = searchResults[indexPath.row].placeID
+        let APIKey = "AIzaSyD6vDOu5B6qUjnWXngt0MJTIXTO4Rzh6OM"
         
-        placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
-            if let error = error {
-                print("lookup place id query error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let place = place else {
-                print("No place details for \(placeID)")
-                return
-            }
+        let searchURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(placeID)&key=\(APIKey)"
+        
+        Alamofire.request(searchURL).responseJSON { (response) in
+            let resp = response.result.value as! [String: Any]
+            print(resp["result"])
             
             //Add info to place reference
-            
+
             self.performSegue(withIdentifier: "toPlaceInfoVC", sender: nil)
-        })
-        
+
+        }
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let placesText = searchText
         searchResults = []
         
-        let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
-        placesClient.autocompleteQuery(placesText, bounds: nil, filter: filter, callback: {(results, error) -> Void in
-            if let error = error {
-                print("Autocomplete error \(error)")
-                return
-            }
-            if let results = results {
+        let APIKey = "AIzaSyD6vDOu5B6qUjnWXngt0MJTIXTO4Rzh6OM"
+        
+        let placesText = searchText
+        let placesEncodedText = placesText.replacingOccurrences(of: " ", with: "+")
+        
+        let searchURL = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(APIKey)&input=\(placesEncodedText)"
+        
+        Alamofire.request(searchURL).responseJSON { (response) in
+            let resp = response.result.value as! [String: Any]
+
+            if let results = resp["predictions"] as? [[String: Any]] {
                 for result in results {
-                    let place = Place(placeID: result.placeID ?? "", primaryText: result.attributedPrimaryText.string, secondaryText: result.attributedSecondaryText?.string ?? "")
+                    let formattedName = result["structured_formatting"] as? [String: Any]
+
+                    let place = Place(placeID: result["place_id"] as? String ?? "", primaryText: formattedName?["main_text"] as? String ?? "", secondaryText: formattedName?["secondary_text"] as? String ?? "")
                     self.searchResults.append(place)
                 }
                 self.searchResultsTableView.reloadData()
             }
-        })
-
+        }
     }
 }
 

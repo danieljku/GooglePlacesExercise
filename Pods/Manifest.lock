@@ -1,15 +1,12 @@
 PODS:
-  - GoogleMaps/Base (2.3.0)
-  - GooglePlaces (2.3.0):
-    - GoogleMaps/Base (= 2.3.0)
+  - Alamofire (4.4.0)
 
 DEPENDENCIES:
-  - GooglePlaces
+  - Alamofire
 
 SPEC CHECKSUMS:
-  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
-  GooglePlaces: 74d322c74184ea4576184089b496d291cf0dcd38
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
 
-PODFILE CHECKSUM: ff1e01c4e2a52e08efe76ab5d1b07686b295b253
+PODFILE CHECKSUM: 0db0960a547adb0a1fb78138dcd5f2ac40c5eb78
 
 COCOAPODS: 1.1.1

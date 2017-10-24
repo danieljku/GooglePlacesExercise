@@ -6,7 +6,7 @@ target 'GooglePlacesExercise' do
   use_frameworks!
 
   # Pods for GooglePlacesExercise
-  pod 'GooglePlaces'
+  pod 'Alamofire'
 
 
 end
