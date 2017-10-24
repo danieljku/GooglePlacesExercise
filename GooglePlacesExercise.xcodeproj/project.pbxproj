@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120325F91F9EB6A800BF9531 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */; };
 		12D01CEB1F9AAF0C00CE6FF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D01CEA1F9AAF0C00CE6FF9 /* AppDelegate.swift */; };
-		12D01CED1F9AAF0C00CE6FF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D01CEC1F9AAF0C00CE6FF9 /* ViewController.swift */; };
+		12D01CED1F9AAF0C00CE6FF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */; };
 		12D01CF01F9AAF0C00CE6FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CEE1F9AAF0C00CE6FF9 /* Main.storyboard */; };
 		12D01CF21F9AAF0C00CE6FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CF11F9AAF0C00CE6FF9 /* Assets.xcassets */; };
 		12D01CF51F9AAF0C00CE6FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CF31F9AAF0C00CE6FF9 /* LaunchScreen.storyboard */; };
@@ -16,9 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		12D01CE71F9AAF0C00CE6FF9 /* GooglePlacesExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GooglePlacesExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D01CEA1F9AAF0C00CE6FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		12D01CEC1F9AAF0C00CE6FF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		12D01CEF1F9AAF0C00CE6FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		12D01CF11F9AAF0C00CE6FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D01CF41F9AAF0C00CE6FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,11 +64,12 @@
 			isa = PBXGroup;
 			children = (
 				12D01CEA1F9AAF0C00CE6FF9 /* AppDelegate.swift */,
-				12D01CEC1F9AAF0C00CE6FF9 /* ViewController.swift */,
+				12D01CEC1F9AAF0C00CE6FF9 /* SearchViewController.swift */,
 				12D01CEE1F9AAF0C00CE6FF9 /* Main.storyboard */,
 				12D01CF11F9AAF0C00CE6FF9 /* Assets.xcassets */,
 				12D01CF31F9AAF0C00CE6FF9 /* LaunchScreen.storyboard */,
 				12D01CF61F9AAF0C00CE6FF9 /* Info.plist */,
+				120325F81F9EB6A800BF9531 /* SearchTableViewCell.swift */,
 			);
 			path = GooglePlacesExercise;
 			sourceTree = "<group>";
@@ -212,7 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D01CED1F9AAF0C00CE6FF9 /* ViewController.swift in Sources */,
+				120325F91F9EB6A800BF9531 /* SearchTableViewCell.swift in Sources */,
+				12D01CED1F9AAF0C00CE6FF9 /* SearchViewController.swift in Sources */,
 				12D01CEB1F9AAF0C00CE6FF9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +383,7 @@
 				12D01CFB1F9AAF0C00CE6FF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
