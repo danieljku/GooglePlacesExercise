@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
     @IBOutlet weak var placesSearchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
+    @IBOutlet weak var networkErrorLabel: UILabel!
     
     var searchResults = [Place]()
 
@@ -20,6 +21,12 @@ class SearchViewController: UIViewController {
         searchResultsTableView.dataSource = self
         searchResultsTableView.delegate = self
         placesSearchBar.delegate = self
+        
+        if CheckNetworkHelper.isConnectedToNetwork() == false {
+            searchResultsTableView.isHidden = true
+        } else {
+            networkErrorLabel.isHidden = true
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,8 +51,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placeID = searchResults[indexPath.row].placeID
         
+        ActivitySpinnerHelper.startSpinning()
         GoogleAPI.fetchPlaceInfo(placeID: placeID) { (place) in
             self.searchResults[indexPath.row].updatePlaceInfo(place: place)
+            
+            ActivitySpinnerHelper.stopSpinning()
             self.view.endEditing(true)
             self.performSegue(withIdentifier: "toPlaceInfoVC", sender: nil)
         }

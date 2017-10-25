@@ -16,6 +16,8 @@
 		12D01CF01F9AAF0C00CE6FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CEE1F9AAF0C00CE6FF9 /* Main.storyboard */; };
 		12D01CF21F9AAF0C00CE6FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CF11F9AAF0C00CE6FF9 /* Assets.xcassets */; };
 		12D01CF51F9AAF0C00CE6FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D01CF31F9AAF0C00CE6FF9 /* LaunchScreen.storyboard */; };
+		12DD57541FA12C3400A7CF2C /* CheckNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD57531FA12C3400A7CF2C /* CheckNetworkHelper.swift */; };
+		12DD57571FA1362F00A7CF2C /* ActivityIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD57561FA1362F00A7CF2C /* ActivityIndicatorHelper.swift */; };
 		7AF758ED13DBF6A78EFD50B3 /* Pods_GooglePlacesExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AD24B888F58317A6702F16 /* Pods_GooglePlacesExercise.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		12D01CF11F9AAF0C00CE6FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D01CF41F9AAF0C00CE6FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12D01CF61F9AAF0C00CE6FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12DD57531FA12C3400A7CF2C /* CheckNetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckNetworkHelper.swift; sourceTree = "<group>"; };
+		12DD57561FA1362F00A7CF2C /* ActivityIndicatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHelper.swift; sourceTree = "<group>"; };
 		20AD24B888F58317A6702F16 /* Pods_GooglePlacesExercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GooglePlacesExercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B7D99DAA62C5C9D6AB463A /* Pods-GooglePlacesExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GooglePlacesExercise.release.xcconfig"; path = "Pods/Target Support Files/Pods-GooglePlacesExercise/Pods-GooglePlacesExercise.release.xcconfig"; sourceTree = "<group>"; };
 		AF6729F196B4F9A4BDE0E56F /* Pods-GooglePlacesExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GooglePlacesExercise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GooglePlacesExercise/Pods-GooglePlacesExercise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		12D01CE91F9AAF0C00CE6FF9 /* GooglePlacesExercise */ = {
 			isa = PBXGroup;
 			children = (
+				12DD57551FA1361A00A7CF2C /* Helpers */,
 				120326011F9EDB9D00BF9531 /* API */,
 				120326001F9ED8F800BF9531 /* Models */,
 				120325FB1F9ED71500BF9531 /* Views */,
@@ -113,6 +118,15 @@
 				12D01CF61F9AAF0C00CE6FF9 /* Info.plist */,
 			);
 			path = GooglePlacesExercise;
+			sourceTree = "<group>";
+		};
+		12DD57551FA1361A00A7CF2C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				12DD57531FA12C3400A7CF2C /* CheckNetworkHelper.swift */,
+				12DD57561FA1362F00A7CF2C /* ActivityIndicatorHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		5B5D70A5CF8145842B9DB626 /* Pods */ = {
@@ -256,7 +270,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12DD57541FA12C3400A7CF2C /* CheckNetworkHelper.swift in Sources */,
 				120325FD1F9ED75100BF9531 /* PlaceInfoViewController.swift in Sources */,
+				12DD57571FA1362F00A7CF2C /* ActivityIndicatorHelper.swift in Sources */,
 				120325F91F9EB6A800BF9531 /* SearchTableViewCell.swift in Sources */,
 				12D01CED1F9AAF0C00CE6FF9 /* SearchViewController.swift in Sources */,
 				120326031F9EDBAB00BF9531 /* GoogleAPI.swift in Sources */,

@@ -55,7 +55,10 @@ struct GoogleAPI {
         var searchResults = [Place]()
         
         Alamofire.request(searchURL).responseJSON { (response) in
-            let resp = response.result.value as! [String: Any]
+            guard let resp = response.result.value as? [String: Any] else {
+                print("network error")
+                return
+            }
             
             if let results = resp["predictions"] as? [[String: Any]] {
                 for result in results {

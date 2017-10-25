@@ -13,16 +13,36 @@ class PlaceInfoViewController: UIViewController {
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeTypesLabel: UILabel!
     @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var openInBrowserButton: UIButton!
+    @IBOutlet weak var cardView: UIView!
     
     var place: Place?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !(UIApplication.shared.canOpenURL(URL(string: (place?.url)!)!)) {
+            openInBrowserButton.isEnabled = false
+        }
+        
+        setup()
+        
         placeImageView.image = place?.photo
         placeNameLabel.text = place?.primaryText
         placeTypesLabel.text = place?.types
-        ratingImageView.image = setRating((place?.rating)!)
+        if place?.rating == 0 {
+            ratingImageView.isHidden = true
+        } else {
+            ratingImageView.image = setRating((place?.rating)!)
+        }
+    }
+    
+    func setup() {
+        cardView.layer.borderColor = UIColor.lightGray.cgColor
+        cardView.layer.borderWidth = 1
+        cardView.layer.cornerRadius = 6
+        cardView.layer.shadowOpacity = 0.5
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
     }
 
     func setRating(_ rating: Double) -> UIImage {
@@ -52,10 +72,8 @@ class PlaceInfoViewController: UIViewController {
     @IBAction func onDismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    @IBAction func onOpenMaps(_ sender: Any) {
-    }
     
     @IBAction func onOpenBrowser(_ sender: Any) {
+        UIApplication.shared.open(URL(string: (place?.url)!)!, options: [:], completionHandler: nil)
     }
 }

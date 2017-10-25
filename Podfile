@@ -7,6 +7,6 @@ target 'GooglePlacesExercise' do
 
   # Pods for GooglePlacesExercise
   pod 'Alamofire'
-
+  pod 'NVActivityIndicatorView'
 
 end
