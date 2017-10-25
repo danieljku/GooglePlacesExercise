@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var placesSearchBar: UISearchBar!
@@ -44,18 +43,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placeID = searchResults[indexPath.row].placeID
-        let APIKey = "AIzaSyD6vDOu5B6qUjnWXngt0MJTIXTO4Rzh6OM"
         
-        let searchURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(placeID)&key=\(APIKey)"
-        
-        Alamofire.request(searchURL).responseJSON { (response) in
-            let resp = response.result.value as! [String: Any]
-            print(resp["result"])
-            
-            //Add info to place reference
-
+        GoogleAPI.fetchPlaceInfo(placeID: placeID) { (place) in
+            self.searchResults[indexPath.row].updatePlaceInfo(place: place)
+            self.view.endEditing(true)
             self.performSegue(withIdentifier: "toPlaceInfoVC", sender: nil)
-
         }
     }
 }
@@ -64,26 +56,17 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchResults = []
         
-        let APIKey = "AIzaSyD6vDOu5B6qUjnWXngt0MJTIXTO4Rzh6OM"
-        
         let placesText = searchText
         let placesEncodedText = placesText.replacingOccurrences(of: " ", with: "+")
         
-        let searchURL = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(APIKey)&input=\(placesEncodedText)"
-        
-        Alamofire.request(searchURL).responseJSON { (response) in
-            let resp = response.result.value as! [String: Any]
-
-            if let results = resp["predictions"] as? [[String: Any]] {
-                for result in results {
-                    let formattedName = result["structured_formatting"] as? [String: Any]
-
-                    let place = Place(placeID: result["place_id"] as? String ?? "", primaryText: formattedName?["main_text"] as? String ?? "", secondaryText: formattedName?["secondary_text"] as? String ?? "")
-                    self.searchResults.append(place)
-                }
-                self.searchResultsTableView.reloadData()
-            }
+        GoogleAPI.searchPlace(placesText: placesEncodedText) { (places) in
+            self.searchResults = places
+            self.searchResultsTableView.reloadData()
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
 }
 
