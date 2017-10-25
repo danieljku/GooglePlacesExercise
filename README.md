@@ -1,4 +1,4 @@
-# Bandsintown Code Exercise
+# Google Search Code Exercise
 
 - Time spent: 6 hours
 
